@@ -114,34 +114,33 @@
           </div>
         </div>
         <div class="row">
-{%for i in range(num_of_wine_categories)%}
- <div class="col-12 section-title text-center mb-5">
- <h2 class="d-block">{{wine_categories[i]}}</h2>
- <div class="row">
-   {%for j in range(3)%}
-      <div class="col-lg-4 mb-5 col-md-6">
-            <div class="wine_v_1 text-center pb-4 pt-5">
-              <img src=images/{{wine_dict[wine_categories[i]][j]['Картинка']}} alt="Image" class="img-fluid">
-              {% if wine_dict[wine_categories[i]][j]['Акция']=='Выгодное предложение' %} 
-               <img src="assets/profitable.png" style="width:10rem;height: 10rem;position:absolute;right: -20px;top: -20px;">
-               {% endif %}      
-                <h3 class="heading mt-3 mb-3 text-dark">{{wine_dict[wine_categories[i]][j]['Название']}}</h3>
-                <p>
-                  {% if not wine_dict[wine_categories[i]][j]['Сорт'] %}
-                  <br/>
-                  {% else %}
-                  Сорт винограда - {{wine_dict[wine_categories[i]][j]['Сорт']}}<br/>
-                  {% endif %}
-                  <span class="price">{{wine_dict[wine_categories[i]][j]['Цена']}} р.</span>
-                </p>
+
+    {%for category,beverages_in_category in beverages.items()%}
+      <div class="col-12 section-title text-center mb-5">
+        <h2 class="d-block">{{category}}</h2>
+          <div class="row">
+            {%for beverage in beverages_in_category%}
+              <div class="col-lg-4 mb-5 col-md-6">
+                <div class="wine_v_1 text-center pb-4 pt-5">
+                  <img src=images/{{beverages[category][loop.index0]['Картинка']}} alt="Image" class="img-fluid">
+                    {% if beverages[category][loop.index0]['Акция']!='' %} 
+                      <img src="assets/profitable.png" style="width:10rem;height: 10rem;position:absolute;right: -20px;top: -20px;">
+                        {% endif %}      
+                          <h3 class="heading mt-3 mb-3 text-dark">{{beverages[category][loop.index0]['Название']}}</h3>
+                            <p>
+                              {% if beverages[category][loop.index0]['Сорт'] %}
+                                Сорт винограда - {{beverages[category][loop.index0]['Сорт']}}<br/>
+                                  {% endif %}
+                                    <span class="price">{{beverages[category][loop.index0]['Цена']}} р.</span>
+                            </p>
+                           </div>
+                         </div>
+                       {% endfor %}
+                     </div>
+                  {% endfor %}
+                </div>
               </div>
             </div>
-    {% endfor %}
-</div>
-{% endfor %}
-        </div>
-      </div>
-    </div>
 
     <div class="hero-2" style="background-image: url('assets/hero_2.jpg');">
     <div><a id="feedback"></a></div>
