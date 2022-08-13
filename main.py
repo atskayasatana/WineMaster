@@ -11,7 +11,7 @@ from pathlib import Path
 WINERY_FOUNDATION_YEAR = 1920
 
 
-def correct_noun(number):
+def set_noun_to_num(number):
     suffix = ''
     number = number % 100
     if number > 19:
@@ -45,7 +45,7 @@ if __name__ == '__main__':
     template = env.get_template('template.html')
     rendered_page = template.render(
         age=datetime.datetime.now().year-WINERY_FOUNDATION_YEAR,
-        form=correct_noun(datetime.datetime.now().year -
+        form=set_noun_to_num(datetime.datetime.now().year -
                           WINERY_FOUNDATION_YEAR),
         beverages=beverages
         )
