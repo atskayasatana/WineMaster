@@ -124,12 +124,12 @@
                 <div class="wine_v_1 text-center pb-4 pt-5">
                   <img src=images/{{beverage['Картинка']}} alt="Image" class="img-fluid">
                     {% if beverage['Акция'] %} 
-                    <img src="assets/profitable.png" style="width:10rem;height: 10rem;position:absolute;right: -20px;top: -20px;">
+                      <img src="assets/profitable.png" style="width:10rem;height: 10rem;position:absolute;right: -20px;top: -20px;">
                     {% endif %}      
                           <h3 class="heading mt-3 mb-3 text-dark">{{beverage['Название']}}</h3>
                             <p>
                               {% if beverage['Сорт'] %}
-                              Сорт винограда - {{beverage['Сорт']}}<br/>
+                                Сорт винограда - {{beverage['Сорт']}}<br/>
                               {% endif %}
                               <span class="price">{{beverage['Цена']}} р.</span>
                             </p>
@@ -236,4 +236,3 @@
 </body>
 
 </html>
-
